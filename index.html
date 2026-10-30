@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Jeu des allumettes : à vous de jouer !" />
+    <script src="script.js" defer></script>
+    <title>Le jeu des allumettes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game" aria-labelledby="game-title">
+      <header class="game-header">
+        <p class="eyebrow">Jeu de stratégie</p>
+        <h1 id="game-title">Le jeu des allumettes</h1>
+        <p class="intro">
+          Un jeu simple, un peu de stratégie et un seul objectif : prendre la
+          dernière allumette !
+        </p>
+      </header>
+
+      <section
+        class="home-screen"
+        id="ecran-accueil"
+        aria-labelledby="home-title"
+      >
+        <div class="home-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="eyebrow">Prêts à jouer ?</p>
+        <h2 id="home-title">Bienvenue dans le jeu des allumettes</h2>
+        <p class="home-description">
+          À tour de rôle, chaque joueur retire entre 1 et 6 allumettes. Celui ou
+          celle qui retire la dernière remporte la partie.
+        </p>
+        <div class="player-form">
+          <label for="player-count">Combien de joueurs participent ?</label>
+          <input
+            id="player-count"
+            name="player-count"
+            type="number"
+            min="2"
+            value="2"
+            inputmode="numeric"
+            aria-describedby="player-help"
+          />
+          <p class="player-help" id="player-help">
+            Selectionnez entre 2 et 4 joueurs.
+          </p>
+          <button class="start-button" id="start-game" type="button">
+            Commencer la partie <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="game-card" aria-label="Plateau de jeu">
+        <div class="game-info">
+          <div class="remaining">
+            <span class="info-label">Allumettes restantes</span>
+            <strong id="match-count" aria-live="polite">50</strong>
+          </div>
+          <div class="turn" id="current-turn" aria-live="polite">
+            <span class="turn-indicator" aria-hidden="true"></span>
+            <span
+              ><span class="info-label">Au tour de</span
+              ><strong id="current-player">Joueur 1</strong></span
+            >
+          </div>
+        </div>
+
+        <div
+          class="matches"
+          id="matches"
+          role="img"
+          aria-label="Tas de 50 allumettes"
+        >
+          <span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span> <span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span>
+          <span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span> <span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span>
+          <span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span> <span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span>
+          <span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span> <span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span>
+          <span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span> <span class="match"></span
+          ><span class="match"></span><span class="match"></span
+          ><span class="match"></span><span class="match"></span>
+        </div>
+
+        <div class="move-area">
+          <h2>Combien en retirer ?</h2>
+          <p class="hint">Choisissez un nombre de 1 à 6</p>
+          <div class="move-buttons" aria-label="Nombre d'allumettes à retirer">
+            <button
+              type="button"
+              data-take="1"
+              aria-label="Retirer 1 allumette"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              data-take="2"
+              aria-label="Retirer 2 allumettes"
+            >
+              2
+            </button>
+            <button
+              type="button"
+              data-take="3"
+              aria-label="Retirer 3 allumettes"
+            >
+              3
+            </button>
+            <button
+              type="button"
+              data-take="4"
+              aria-label="Retirer 4 allumettes"
+            >
+              4
+            </button>
+            <button
+              type="button"
+              data-take="5"
+              aria-label="Retirer 5 allumettes"
+            >
+              5
+            </button>
+            <button
+              type="button"
+              data-take="6"
+              aria-label="Retirer 6 allumettes"
+            >
+              6
+            </button>
+          </div>
+        </div>
+
+        <p class="status" id="game-message" role="status">
+          La partie est prête. Joueur 1, à vous de jouer !
+        </p>
+      </section>
+      <footer class="game-footer">À vous de jouer, et bonne chance !</footer>
+    </main>
+  </body>
+</html>
